@@ -1,0 +1,9 @@
+@media only screen and (min-width: 720px) {
+    .jumbotron {
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+    }
+}
+

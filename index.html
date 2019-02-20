@@ -6,102 +6,28 @@
     <title> The Random Episode </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <style type="text/css">
-        html,
-        body {
-            height: 100%;
-            min-height: 100%;
-            width: 100%;
-            min-width: 100%;
-            margin: 0;
-        }
-
-        body {
-            overflow-y: scroll;
-            display: grid;
-        }
-
-        main {
-            margin: 0 auto;
-            width: 650px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h1,
-        p {
-            margin: 1em 0 1em 0;
-        }
-
-        h1 {
-            text-align: center;
-            font-family: "Roboto Condensed", "Roboto", "Arial", "Open Sans", sans-serif;
-            font-size: 33px;
-            font-weight: normal;
-        }
-
-        hr {
-            display: block;
-            width: 40%;
-            height: 1px;
-            background-color: #656565;
-            border: none;
-        }
-
-        p {
-            font-family: "Roboto Condensed", "Roboto", "Arial", "Open Sans", sans-serif;
-            font-size: 30px;
-        }
-
-        p.center,
-        p.yes,
-        p.no {
-            text-align: center;
-        }
-
-        input {
-            font-size: inherit;
-        }
-
-        button{
-            font-size: inherit;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <main>
-        <h1> Qual episódio assistir?</h1>
-        <hr>
-        <p> Você quer assistir um episódio aleatório de alguma série e não sabe qual? </p>
-        <p> Use o gerador para escolher um: </p>
-        <p class="center"> Quantas temporadas tem a série? </p>
-        <p class="center"> <input type="number" id="seasons" maxlength="10" value="1" /> </p>
-        <p class="center"> Quantos episódios tem cada temporada? </p>
-        <p class="center"> <input type="number" id="episodes" maxlength="10" value="1"/> </p>
-        <button type="button" id="generate">Gerar!</button>
-        <hr>
-        <p> Temporada <output id="season" data-after="000">1</output> Episódio <output id="episode" data-after="000">1</output></p>
-    </main>
-    <script type="text/javascript">
+    <div class="text-center h-100 container">
+        <div class="align-middle my-3 jumbotron"> 
+            <h1> Qual episódio assistir?</h1>
+            <hr>
+            <p> Você quer assistir um episódio aleatório de alguma série e não sabe qual? </p>
+            <p> Use o gerador para escolher um: </p>
+            <p> Quantas temporadas tem a série? </p>
+            <p> <input type="number" id="seasons" maxlength="10" value="1" /> </p>
+            <p> Quantos episódios tem cada temporada? </p>
+            <p> <input type="number" id="episodes" maxlength="10" value="1"/> </p>
+            <button type="button" id="generate">Gerar!</button>
+            <hr>
+            <p> Temporada <output id="season" data-after="000">1</output> Episódio <output id="episode" data-after="000">1</output></p>
+        </div>
+    </div>
 
-        function getRandom(maxSeason, maxEpisode, season, episode){
-            season.innerText = Math.floor(Math.random() * (maxSeason - 1) + 1);
-            episode.innerText = Math.floor(Math.random() * (maxEpisode - 1) + 1);
-        }
-
-        const seasons = document.getElementById("seasons");
-        const episodes = document.getElementById("episodes");
-        const season = document.getElementById("season");
-        const episode = document.getElementById("episode");
-        const button = document.getElementById("generate");
-        const MAX = 10;
-
-        button.onclick = e => {
-            getRandom(seasons.value, episodes.value, season, episode);
-        }
-
-    </script>
+    <script src="index.js"></script>
 </body>
 
 </html>
